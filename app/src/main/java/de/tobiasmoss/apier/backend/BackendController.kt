@@ -20,7 +20,7 @@ class BackendController @Inject constructor(){
 
     fun create(endpoint: String, content: String, details: String) : Int {
         val mediaTypeJson = "application/json; charset=utf-8".toMediaType()
-        val jsonString = "{\"content\":\"$content\",\"details\":\"$details\"}"
+        val jsonString = "{\"content\":\"${content.replace("\"","\\\"")}\",\"details\":\"$details\"}"
 
         Log.i("BackendController", "Json Request: $jsonString")
 
